@@ -55,11 +55,14 @@ cm_train = confusion_matrix(y_tr,y_pred_train)
 #Test
 cm_test = confusion_matrix(y_te,y_pred_test)
 
+tot_test = cm_test[0][0]+cm_test[1][1]+cm_test[0][1]+cm_test[1][0]
+tot_train = cm_train[0][0]+cm_train[1][1]+cm_train[0][1]+cm_train[1][0]
+
 print("The Training data set is split into train set and test set (2:8)")
 
-print("Accuracy of train set is :",((cm_train[0][0]+cm_train[1][1])/623)*100 , "%" )
+print("Accuracy of train set is :",((cm_train[0][0]+cm_train[1][1])/tot_train)*100 , "%" )
 
-print("Accuracy of test set is  : " , ((cm_test[0][0]+cm_test[1][1])/156)*100 , " %")
+print("Accuracy of test set is  : " , ((cm_test[0][0]+cm_test[1][1])/tot_test)*100 , " %")
 
 #Predicting the test values
 y_pred = regressor_1.predict(X_test)

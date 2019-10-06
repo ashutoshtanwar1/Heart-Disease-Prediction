@@ -67,3 +67,7 @@ print("Accuracy of test set is  : " , ((cm_test[0][0]+cm_test[1][1])/tot_test)*1
 #Predicting the test values
 y_pred = regressor_1.predict(X_test)
 y_pred = np.round(y_pred)
+
+
+from sklearn.metrics import f1_score
+f1_score(y_true, y_pred, average='macro')
